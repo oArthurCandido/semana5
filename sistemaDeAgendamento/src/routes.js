@@ -6,6 +6,7 @@ import SessionController from './app/controllers/SessionController';
 import FileController from './app/controllers/FileController';
 import authMiddleware from './app/middlewares/auth';
 import CollaboratorController from './app/controllers/CollaboratorController';
+import AppointmentController from './app/controllers/AppointmentController';
 
 const routes = new Router();
 
@@ -19,6 +20,9 @@ routes.post('/sessions', SessionController.store);
 routes.use(authMiddleware);
 
 routes.put('/users', UserController.update);
+
+// Rota de agendamento
+routes.post('/appointments', AppointmentController.store);
 
 //Lista colaboradores
 
