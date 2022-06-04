@@ -7,6 +7,7 @@ import FileController from './app/controllers/FileController';
 import authMiddleware from './app/middlewares/auth';
 import CollaboratorController from './app/controllers/CollaboratorController';
 import AppointmentController from './app/controllers/AppointmentController';
+import ScheduleCOntroller from './app/controllers/ScheduleCOntroller';
 
 const routes = new Router();
 
@@ -30,6 +31,10 @@ routes.get('/appointments', AppointmentController.index);
 //Lista colaboradores
 
 routes.get('/collaborator', CollaboratorController.index);
+
+//Listagem de agendamento colaborador
+
+routes.get('/schedule', ScheduleCOntroller.index);
 
 // upload de arquivos
 routes.post('/files', upload.single('file'), FileController.store);
