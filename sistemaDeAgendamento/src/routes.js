@@ -8,6 +8,8 @@ import authMiddleware from './app/middlewares/auth';
 import CollaboratorController from './app/controllers/CollaboratorController';
 import AppointmentController from './app/controllers/AppointmentController';
 import ScheduleCOntroller from './app/controllers/ScheduleCOntroller';
+import Notifications from './app/schema/Notifications';
+import NotificationsController from './app/controllers/NotificationsController';
 
 const routes = new Router();
 
@@ -35,6 +37,14 @@ routes.get('/collaborator', CollaboratorController.index);
 //Listagem de agendamento colaborador
 
 routes.get('/schedule', ScheduleCOntroller.index);
+
+//Listagem de notificações
+
+routes.get('/notifications', NotificationsController.index);
+
+//Marcar como lida
+
+routes.put('/notifications/:id', NotificationsController.update);
 
 // upload de arquivos
 routes.post('/files', upload.single('file'), FileController.store);
